@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{listings}
+\usepackage{url}
+
+%if you really want, you can customise the code syntax highlighting
+\lstset{ frameround=tttt, breaklines=false, basicstyle=\ttfamily, frame=single }
+
+\begin{document}
+
+\section{this is a section heading}
+\subsection{this is a subsection heading}
+\subsubsection{this is a subsubsection heading}
+
+So you want to try some tex?
+
+Inline math is like this $TRUE = (\lambda xy.x)$
+
+Or they can go on their own line like this $$FALSE = (\lambda xy.y)$$
+
+You can get different sized parentheses like this:
+$$ \Bigg( \bigg( \Big( \big( ( ) \big) \Big) \bigg) \Bigg) $$
+
+If you wanted to do the full notation (don't) the application is $\cdot$, e.g. $\Big(\lambda x.\big(\lambda y.(y\cdot x)\big)\Big)$
+
+You can do subscripts in math $x_1, x_2, x_{12}$, and superscripts $x^1, x^2, x^{12}$, or both $\Sigma_{bar}^{foo}$
+
+Some fancy symbols: $\rightarrow, \rightarrow_\beta, \twoheadrightarrow_\beta, \equiv, =_\beta...$
+
+Some not so fancy symbols: $\{a, b, c\}$ ... (we had to escape the brace with a backslash)
+
+Later in the course you might want some these too $\land \lor \Rightarrow \Leftrightarrow \vdash$
+
+In general, if you need to find a symbol go look at \url{http://detexify.kirelabs.org/classify.html}
+
+Often you want to line up formulas:
+
+\begin{align*}
+  & F\ \{a,b,c,d\} \\
+  =\ & (Y\ H)\ \{a,b,c,d\} \\
+  =\ & H\ (Y\ H)\ \{a,b,c,d\} \tag{Y Combinator} \\
+  =\ & \Big(\lambda fa.\big(ISNIL\ (TAIL\ a)\big)\ (HEAD\ a)\ \big(f\ (TAIL\ a)\big)\Big)\ (Y\ H)\ \{a,b,c,d\}   \\
+  =\ & \Big(\lambda a.\big(ISNIL\ (TAIL\ a)\big)\ (HEAD\ a)\ \big((Y\ H)\ \ (TAIL\ a)\big)\Big)\ \{a,b,c,d\}    \tag{$\beta$-reduction}\\
+  =\ & ...
+\end{align*}
+
+It aligns the \& characters. Don't forget the double backslashes to end each line.
+
+I'll admit, manually adding all those spaces in mathmode is pretty annoying. I expect there's a much better way to typeset stuff.
+
+% this is a comment
+
+If you don't
+put a blank
+
+line between
+lines
+with text
+then
+there
+isn't
+a
+gap
+
+%\newpage %uncomment this for a page break
+
+\begin{itemize}
+  \item bullet
+  \item points
+\end{itemize}
+
+\begin{enumerate}
+  \item numbered
+  \item points
+\end{enumerate}
+
+\begin{tabular}{c|c|l|||r|}
+  tables & are & nice & once \\ \hline
+  you & & & get \\
+  the & hang & & of \\ \hline \hline
+  them & & & \\ \hline
+\end{tabular}
+
+Here's some \texttt{truetype font} for where you don't need \emph{fancy} \textbf{highlighting}.
+
+\begin{lstlisting}[language=Lisp]
+;; here's some source code, for when you do
+;; it's verbatim -- you get exactly what you write, see: $\equiv_\beta$
+(defun insert (tree x)
+;; inserts x to the binary search tree
+)
+(defun list-to-tree (mylist &optional tree)
+;; note: the second argument 'tree' will be nil by default
+;; inserts every element of the list 'mylist' into the tree
+)
+(defun inorder (tree)
+;; list giving the inorder traversal of the tree
+)
+\end{lstlisting}
+
+OK, that wasnt very fancy. You can make it prettier if you really want, e.g.
+
+\url{https://www.overleaf.com/latex/examples/syntax-highlighting-in-latex-with-the-listings-package/jxnppmxxvsvk#.W4J-guj7QuV}
+
+
+\end{document}
